@@ -53,7 +53,7 @@ body{
     border-radius: 22px;  
     color: #C300FF;
     font-size: 24px;
-    /* display: none; */
+    display: none;
 }
 
 .head{
