@@ -1,23 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>TO DO LIST</title>
 </head>
+
 <body>
-    <div class="main">
-        <div class="bound">
-            <h2>To Do List</h2>
-        </div>
-        <textarea name="Text" id="area" placeholder="Enter text Here" rows="4"></textarea>
-        <button class="submit" onclick="task()">Submit</button>
+    <div class="welcomearea">
+        <h1 class="welcome">WELCOME TO TASKNET</h1>
+        <p>Click proceed to add all your todo's</p>
+        <button onclick="nextwindow()" class="next">PROCEED</button>
     </div>
-    <div class="list" id="container">
-        <div class="head">ALL YOUR TODOS</div>
-        <button class="Clean" onclick="cleartask()">Clear</button>
+    <div class="mainsite">
+        <div class="main" id="box">
+            <div class="bound">
+                <h2>To Do List</h2>
+            </div>
+            <textarea name="Text" id="area" placeholder="Enter text Here" rows="4"></textarea>
+            <button class="submit" onclick="task()">Submit</button>
+        </div>
+        <div class="list" id="container">
+            <div class="head">ALL YOUR TODOS</div>
+            <button class="Clean" onclick="cleartask()">Clear all</button>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
+
 </html>

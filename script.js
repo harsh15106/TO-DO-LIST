@@ -1,9 +1,23 @@
 let area = document.getElementById('area');
 let content = document.getElementById('container');
+let box = document.getElementById('box');
+
+function nextwindow() {
+    let main = document.getElementsByClassName('welcomearea')[0];
+    main.classList.add('go')
+    let site = document.getElementsByClassName('mainsite')[0];
+    site.classList.add('visibleone');
+}
 
 // Load todos on page load
 window.onload = function () {
     loadTasks();
+    const list = document.querySelectorAll(".todos");
+
+    if (list.length > 0) {
+        content.classList.add("visibletwo");
+        box.classList.add("moved");
+    }
 };
 
 function task() {
@@ -14,6 +28,7 @@ function task() {
     saveTaskToLocalStorage(text);
 
     area.value = ""; // clear input after submission
+    box.classList.add('moved')
 }
 
 function addtaskinDOM(text) {
@@ -30,6 +45,10 @@ function addtaskinDOM(text) {
     texts.textContent = text;
     texts.style.marginLeft = "10px";
 
+    checkbox.addEventListener("change", function () {
+    texts.classList.toggle("checked", checkbox.checked);
+  });
+
     // Add checkbox and text to task
     input.appendChild(checkbox);
     input.appendChild(texts);
@@ -38,7 +57,8 @@ function addtaskinDOM(text) {
     const clearBtn = document.querySelector(".Clean");
     content.insertBefore(input, clearBtn);
 
-    content.classList.add("visible");
+    content.classList.add("visibletwo");
+
 }
 
 function saveTaskToLocalStorage(text) {
@@ -60,5 +80,6 @@ function cleartask() {
     localStorage.removeItem("todos");
 
     // Hide container if needed
-    content.classList.remove("visible");
+    content.classList.remove("visibletwo");
+    box.classList.remove('moved')
 }
