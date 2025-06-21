@@ -20,7 +20,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 25rem;
+    width: 22rem;
     max-height: 12.5rem;
     position: relative;
     top: 14rem;
@@ -79,7 +79,7 @@ body {
 /* Making main(box) UI */
 .main {
     border: 2px solid rgba(244, 241, 241, 0.193);
-    width: 20rem;
+    width: 18rem;
     max-height: 15rem;
     display: flex;
     overflow: hidden;
@@ -89,7 +89,7 @@ body {
     top: 13rem;
     left: 38rem;
     color: rgb(255, 255, 255);
-    gap: 14px;
+    gap: 10px;
     border-radius: 10px;
     text-align: center;
     backdrop-filter: blur(9px);
@@ -98,26 +98,10 @@ body {
 }
 
 .main.moved {
-    top: 5rem;
+    top: 13rem;
     left: 22rem;
 }
 
-main::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 2px solid transparent;
-  border-radius: 10px;
-  background: linear-gradient(120deg, transparent, #e600ff, transparent);
-  background-size: 400% 400%;
-  background-position: var(--x) var(--y);
-  pointer-events: none;
-  z-index: 1;
-  transition: background-position 0.1s ease;
-}
 
 /* Heading background */
 .bound {
@@ -131,7 +115,11 @@ main::before {
     resize: none;
     background-color: rgba(225, 225, 225, 0);
     color: white;
-    border: 2px solid rgba(255, 255, 255, 0.197);
+    outline: none;
+    border-top: 2px solid rgba(255, 255, 255, 0.197);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.197);
+    border-left: none;
+    border-right: none;
 }
 
 /* Submit button UI */
@@ -160,11 +148,11 @@ main::before {
 /* Todos List UI */
 .list {
     backdrop-filter: blur(9px);
-    width: 20rem;
+    width: 15rem;
     overflow-y: auto;
-    min-height: 30rem;
+    min-height: 20rem;
     position: absolute;
-    bottom: 10rem;
+    bottom: 15rem;
     left: 52rem;
     padding: 10px;
     margin: 5px;
@@ -195,6 +183,22 @@ main::before {
 .list.visibletwo {
     display: block;
 }
+
+.flex{
+    display: flex;
+    justify-content: center;
+}
+
+.editbtn{
+    position: fixed;
+    cursor: pointer;
+    border-radius: 110px;
+    margin-left: 10px;
+    background-color: transparent;
+    border: none;
+    flex-shrink: 0;
+}
+
 
 /* CLear button UI */
 .Clean {
@@ -259,6 +263,7 @@ main::before {
 }
 
 
+
 /* Adding responsiveness */
 @media (width < 450px) {
     body{
@@ -267,22 +272,22 @@ main::before {
     }
     .welcomearea {
         top: 17rem;
-        left: 0.5rem;
+        left: 1rem;
     }
 
     .main {
         top: 17rem;
-        left: 3rem;
+        left: 2rem;
     }
 
     .main.moved {
         top: 5rem;
-        left: 3rem;
+        left: 2rem;
     }
 
     .list {
-        top: 25rem;
-        left: 2.5rem;
+        top: 21rem;
+        left: 2.8rem;
     }
 }
 
