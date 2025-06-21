@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
 
 
-body{
+body {
     margin: 0;
     padding: 0;
     background-image: url(BGimg.png);
@@ -11,7 +11,7 @@ body{
     background-attachment: fixed;
 }
 
-.welcomearea{
+.welcomearea {
     backdrop-filter: blur(9px);
     font-family: "Roboto Condensed";
     display: block;
@@ -28,23 +28,23 @@ body{
     animation: entrywel 2s ease 0s 1 normal both;
 }
 
-.welcomearea.go{
+.welcomearea.go {
     display: none;
     animation: leaving 2s linear 0s 1 normal both;
 }
 
-.welcome{
+.welcome {
     color: rgb(255, 255, 255);
     padding: 10px 0px;
     text-align: center;
 }
 
-.welcomearea p{
+.welcomearea p {
     color: white;
     text-align: center;
 }
 
-.welcomearea button{
+.welcomearea button {
     align-self: center;
     margin: 10px;
     padding: 10px;
@@ -58,7 +58,7 @@ body{
     width: 90px;
 }
 
-.next:hover{
+.next:hover {
     background-color: #000000;
     color: #ffffff;
     text-align: center;
@@ -66,24 +66,26 @@ body{
     border: none;
 
 }
-.mainsite{
+
+.mainsite {
     font-family: "Roboto Condensed";
     display: none;
 }
 
-.mainsite.visibleone{
+.mainsite.visibleone {
     display: block;
 }
 
 /* Making main(box) UI */
-.main{
+.main {
     border: 2px solid rgba(244, 241, 241, 0.193);
     width: 20rem;
     max-height: 15rem;
     display: flex;
+    overflow: hidden;
     flex-direction: column;
     justify-content: center;
-    position: absolute;
+    position: relative;
     top: 13rem;
     left: 38rem;
     color: rgb(255, 255, 255);
@@ -94,33 +96,52 @@ body{
     transition: top 2s ease, left 2s ease, transform 2s ease;
     animation: entrymain 2s ease 0s 1 normal both;
 }
-.main.moved{
+
+.main.moved {
     top: 5rem;
     left: 22rem;
 }
+
+main::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  background: linear-gradient(120deg, transparent, #e600ff, transparent);
+  background-size: 400% 400%;
+  background-position: var(--x) var(--y);
+  pointer-events: none;
+  z-index: 1;
+  transition: background-position 0.1s ease;
+}
+
 /* Heading background */
-.bound{
+.bound {
     border-radius: 10px;
     background-color: none;
 }
 
 /* text area UI  */
-#area{
+#area {
     height: 6rem;
-    resize: none; 
+    resize: none;
     background-color: rgba(225, 225, 225, 0);
     color: white;
     border: 2px solid rgba(255, 255, 255, 0.197);
 }
 
 /* Submit button UI */
-.submit{
+.submit {
     align-self: center;
     margin: 10px;
     padding: 10px;
     width: 5rem;
     background-color: transparent;
-    border:2px solid rgba(255, 255, 255, 0.207);
+    border: 2px solid rgba(255, 255, 255, 0.207);
     border-radius: 22px;
     color: #ffffff;
     cursor: pointer;
@@ -128,15 +149,16 @@ body{
     width: 70px;
 }
 
-.submit:hover{
+.submit:hover {
     background-color: #000000;
     color: #ffffff;
     text-align: center;
     transform: scale(1.1);
     border: none;
 }
+
 /* Todos List UI */
-.list{
+.list {
     backdrop-filter: blur(9px);
     width: 20rem;
     overflow-y: auto;
@@ -147,7 +169,7 @@ body{
     padding: 10px;
     margin: 5px;
     border: 2px solid rgba(255, 255, 255, 0.193);
-    border-radius: 22px;  
+    border-radius: 22px;
     color: #ffffff;
     font-size: 18px;
     display: none;
@@ -155,13 +177,13 @@ body{
 }
 
 .checked {
-  text-decoration: line-through;
-  color: gray;
-  font-style: italic;
+    text-decoration: line-through;
+    color: gray;
+    font-style: italic;
 }
 
 /*Todo list heading*/
-.head{
+.head {
     text-align: center;
     font-size: large;
     font-weight: bold;
@@ -170,12 +192,12 @@ body{
 }
 
 /* List visbility */
-.list.visibletwo{
+.list.visibletwo {
     display: block;
 }
 
 /* CLear button UI */
-.Clean{
+.Clean {
     position: absolute;
     bottom: 10px;
     right: 15px;
@@ -189,77 +211,98 @@ body{
 
 /* Adding Animations */
 @keyframes entrymain {
-	0% {
-		opacity: 0;
-		transform: translateY(-50px);
-	}
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
 
-	100% {
-		opacity: 1;
-		transform: translateY(0);
-	}
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes List {
-	0% {
-		opacity: 0;
-		transform: scale(0.6);
-	}
+    0% {
+        opacity: 0;
+        transform: scale(0.6);
+    }
 
-	100% {
-		opacity: 1;
-		transform: scale(1);
-	}
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 @keyframes entrywel {
-	0% {
-		opacity: 0;
-		transform: translateY(50px);
-	}
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
 
-	100% {
-		opacity: 1;
-		transform: translateY(0);
-	}
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes leaving {
-	0% {
-		opacity: 1;
-		transform: scale(1);
-	}
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
 
-	100% {
-		opacity: 0;
-		transform: scale(0.6);
-	}
+    100% {
+        opacity: 0;
+        transform: scale(0.6);
+    }
 }
 
 
 /* Adding responsiveness */
-@media (width < 450px){
-    .welcomearea{
+@media (width < 450px) {
+    body{
+        margin: 0;
+        padding: 0;
+    }
+    .welcomearea {
+        top: 17rem;
         left: 0.5rem;
     }
 
-    .main{
-        left: 1rem;
+    .main {
+        top: 17rem;
+        left: 3rem;
     }
-    .list{
+
+    .main.moved {
+        top: 5rem;
+        left: 3rem;
+    }
+
+    .list {
         top: 25rem;
-        left: 1rem;
+        left: 2.5rem;
     }
 }
+
 @media (width>450px) and (width < 800px) {
-    .welcomearea{
-        left: 2rem;
+    .welcomearea {
+        top: 19rem;
+        left: 10rem;
     }
+
     .main {
-        left: 5rem;
+        top: 19rem;
+        left: 8rem;
     }
-    .list{
-        top:25rem;
-        left: 5rem;
+    .main.moved {
+        top: 5rem;
+        left: 8rem;
+    }
+
+    .list {
+        top: 25rem;
+        left: 7rem;
     }
 }

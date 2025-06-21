@@ -30,6 +30,13 @@ function task() {
     area.value = ""; // clear input after submission
     box.classList.add('moved')
 }
+box.addEventListener("mousemove", function (e) {
+  const rect = box.getBoundingClientRect();
+  const x = e.clientX - rect.left + "px";
+  const y = e.clientY - rect.top + "px";
+  box.style.setProperty("--x", x);
+  box.style.setProperty("--y", y);
+});
 
 function addtaskinDOM(text) {
     // Create task container
